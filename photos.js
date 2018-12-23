@@ -1,0 +1,8 @@
+const photos = {
+  brian: ['brian-close-1000px.jpg', 'brian-close-100px.jpg', 'brian-close-350px.jpg', 'brian-glass-1000px.jpg', 'brian-glass-100px.jpg', 'brian-glass-350px.jpg', 'brian-side-1000px.jpg', 'brian-side-100px.jpg', 'brian-side-350px.jpg', 'brian-top-1000px.jpg', 'brian-top-100px.jpg', 'brian-top-350px.jpg', ],
+  dafoe: ['dafoe-glass-1000.jpg', 'dafoe-glass-100px.jpg', 'dafoe-glass-350px.jpg', 'dafoe-side-1000.jpg', 'dafoe-side-100px.jpg', 'dafoe-side-350px.jpg', 'dafoe-table-1000.jpg', 'dafoe-table-100px.jpg', 'dafoe-table-350px.jpg', 'dafoe-top-1000.jpg', 'dafoe-top-100px.jpg', 'dafoe-top-350px.jpg', ],
+  kermit: ['kermit-close-1000.jpg', 'kermit-close-100px.jpg', 'kermit-close-350px.jpg', 'kermit-glass-1000.jpg', 'kermit-glass-100px.jpg', 'kermit-glass-350px.jpg', 'kermit-side-1000.jpg', 'kermit-side-100px.jpg', 'kermit-side-350px.jpg', 'kermit-top-1000.jpg', 'kermit-top-100px.jpg', 'kermit-top-350px.jpg', 'thumbs', ],
+  leo: ['leo-close-1000.jpg', 'leo-close-350.jpg', 'leo-glass-1000.jpg', 'leo-glass-350.jpg', 'leo-glass-side-1000.jpg', 'leo-glass-side-350.jpg', 'leo-side-1000.jpg', 'leo-side-350.jpg', 'leo-top-1000.jpg', 'leo-top-350.jpg', ],
+  office_space: ['office-space-close-1000.jpg', 'office-space-close-350.jpg', 'office-space-glass-1000.jpg', 'office-space-glass-350.jpg', 'office-space-side-1000.jpg', 'office-space-side-350.jpg', 'office-space-top-1000.jpg', 'office-space-top-350.jpg', ],
+  trump: ['trump-close-1000.jpg', 'trump-close-350.jpg', 'trump-glass-1000.jpg', 'trump-glass-350.jpg', 'trump-side-1000.jpg', 'trump-side-350.jpg', 'trump-top-1000.jpg', 'trump-top-350.jpg', ]
+}
