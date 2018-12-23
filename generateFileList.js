@@ -38,7 +38,6 @@ function loadFiles(pathList, callback){
       fs.readdir(fullPath, function(err, items) {
         var result = '[';
 
-// for all items in folder write them to a long array and make it a string
         for(let i = 0; i < items.length; i++){
 
           if(items[i] != '.DS_Store'){
