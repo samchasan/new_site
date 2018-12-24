@@ -8,7 +8,27 @@ html {
 }
 
 ul {
-  background-color: orange;
+  /* background-color: orange; */
+  position: relative;
+  left:0;
+  padding:0;
+  margin:0;
+  /* top:120; */
+  /* width:100px;
+  height:120px; */
+  display: inline-block;
+}
+
+ul li{
+  /* padding:2px; */
+  margin: 2px;
+  display: block;
+  list-style-type: none;
+  list-style: none;
+  text-align: left;
+  text-transform: uppercase;
+  /* stroke:1px; */
+  position:
 }
 
 ul li:hover {
@@ -16,10 +36,14 @@ ul li:hover {
   cursor:pointer;
 }
 
-ul li:active{
+/* ul li:active{
   color: green;
 }
 
 ul li:focus{
-  color: lightgreen;
+  color: lightgreen; */
+/* } */
+
+div {
+  position: relative;
 }
