@@ -12,7 +12,7 @@ loadDir(archive, list =>{
   loadFiles(folderList, files => {
     // console.log(files);
       writeFiles(masterList, msg => {
-      console.log(msg)
+      // console.log(msg)
     })
   })
 })

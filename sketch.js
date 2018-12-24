@@ -1,5 +1,8 @@
 let ids = [];
 let keys;
+const largeSize = "350px";
+const smallSize = "100px";
+let titles;
 
 function setup(){
   noCanvas()
@@ -9,28 +12,38 @@ function setup(){
     const box = createDiv()
     box.id(key)
     innerContent(photoGroup, key)
+    buildList(key)
   })
-
 
   ids.forEach(function(id){
     const hash = '#'+id
-    $(document).ready(function() {
+    $(document).ready( () => {
       hideLarge(id)
     })
-    $(hash).mouseover(function() {
+    $(hash).mouseover( () => {
       showLarge(id)
     // console.log(id)
     });
-    $(hash).mouseout(function() {
+    $(hash).mouseout( () => {
       hideLarge(id)
     });
   })
 }
 
+function buildList(id){
+  let list = document.getElementById('titles')
+  const element = document.createElement("LI");
+  element.innerHTML = id
+  element.setAttribute("id", id);
+  list.appendChild(element);
+  // console.log(x)
+
+}
+
 function innerContent(photos,key){
   photos.forEach(function(file,i){
     // console.log(file)
-  if (file.includes("100px")){
+  if (file.includes(smallSize)){
     // console.log(file)
     const name = file.substring(0,file.length-10)
     const div = document.createElement("div")
@@ -39,14 +52,13 @@ function innerContent(photos,key){
     img.setAttribute("src","/static/" + key + "/" + file)
     $(img).attr('id',id)
 
-    // $(key).append(name)
     const objTo = document.getElementById(key)
-    console.log(objTo)
+    // console.log(objTo)
 
     objTo.appendChild(img)
     ids.push(id)
     // console.log(id)
-  } else if(file.includes("350px")){
+  } else if(file.includes(largeSize)){
     // console.log(file)
     const name = file.substring(0,file.length-6)
     const img = createImg("/static/" + key + "/" + file)
