@@ -1,4 +1,5 @@
 let ids = [];
+let allKeys = [];
 let keys;
 const largeSize = "350px";
 const smallSize = "100px";
@@ -8,36 +9,75 @@ function setup(){
   noCanvas()
   keys = Object.keys(photos);
   keys.forEach(function(key){
+    allKeys.push(key)
     const photoGroup = photos[key]
     const box = createDiv()
     box.id(key)
     innerContent(photoGroup, key)
     buildList(key)
+    addListFunction(key)
+    let hash = '#'+key
+    $(`${hash}`).hide();
   })
 
-  ids.forEach(function(id){
-    const hash = '#'+id
-    $(document).ready( () => {
-      hideLarge(id)
-    })
-    $(hash).mouseover( () => {
-      showLarge(id)
-    // console.log(id)
-    });
-    $(hash).mouseout( () => {
-      hideLarge(id)
-    });
-  })
+  showAndHideLargePhotos()
+
 }
 
+
+
+function addListFunction(key){
+// select clicked LI element
+  let hash_li = '#'+key+'_li'
+  $(hash_li).click(function() {
+    $(hash_li).css({
+          'background-color': 'red',
+          'color': 'white',
+      });
+// select associated div and show
+  let hash = '#'+key
+  $(`${hash}`).show();
+
+// deselect/hide other li options and dives
+    let arr_lis = allKeys.filter(value => value !== key);
+    arr_lis.forEach(function(key){
+      let hash_li = '#'+key+'_li'
+      $(hash_li).css({
+            'background-color': 'orange',
+            'color': 'black',
+        });
+// select other divs and hide        
+      let hash= '#'+key
+      $(`${hash}`).hide();
+    })
+})
+}
+
+function showAndHideLargePhotos(){
+    ids.forEach(function(id){
+      const hash = '#'+id
+      $(document).ready( () => {
+        hideLarge(id)
+      })
+      $(hash).mouseover( () => {
+        showLarge(id)
+      // console.log(id)
+      });
+      $(hash).mouseout( () => {
+        hideLarge(id)
+      });
+    })
+  }
+
+
 function buildList(id){
-  let list = document.getElementById('titles')
+  const list = document.getElementById('titles')
   const element = document.createElement("LI");
+  const id2 = id+'_li'
   element.innerHTML = id
-  element.setAttribute("id", id);
+  element.setAttribute("id", id2);
   list.appendChild(element);
   // console.log(x)
-
 }
 
 function innerContent(photos,key){
@@ -51,10 +91,8 @@ function innerContent(photos,key){
     const img = document.createElement("img")
     img.setAttribute("src","/static/" + key + "/" + file)
     $(img).attr('id',id)
-
     const objTo = document.getElementById(key)
     // console.log(objTo)
-
     objTo.appendChild(img)
     ids.push(id)
     // console.log(id)
