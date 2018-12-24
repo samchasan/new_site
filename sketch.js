@@ -4,12 +4,25 @@ let keys;
 const largeSize = "350px";
 const smallSize = "100px";
 let titles;
+let activeHash;
 
 function setup(){
   noCanvas()
   generateContent()
   largePhotosFxn()
 }
+
+function draw(){
+  checkActive()
+}
+
+function checkActive(){
+  $(activeHash).css({
+        // 'background-color': 'red',
+        'color': 'lightgreen',
+    });
+}
+
 
 
 function generateContent(){
@@ -31,31 +44,45 @@ function generateContent(){
 
 
 function addListFunction(key){
-// select clicked LI element
   let hash_li = '#'+key+'_li'
   $(hash_li).click(function() {
-    $(hash_li).css({
-          // 'background-color': 'red',
-          'color': 'lightgreen',
-      });
-// select associated div and show
-  let hash = '#'+key
-  $(`${hash}`).show();
-
+  activeHash = hash_li
 // deselect/hide other li options and dives
     let arr_lis = allKeys.filter(value => value !== key);
     arr_lis.forEach(function(key){
       let hash_li = '#'+key+'_li'
       $(hash_li).css({
-            // 'background-color': 'orange',
-            'color': 'black',
+            'color': '',
         });
+      $(hash_li).hover( function(){
+        $(hash_li).css({
+          'color': 'lightgray',
+          'cursor':'pointer'
+        })
+        }, function(){
+        $(hash_li).css({
+          'color': '',
+        })
+        }
+      )
 // select other divs and hide
       let hash= '#'+key
       $(`${hash}`).hide();
     })
+
+    // select clicked LI element
+    $(hash_li).css({
+          // 'background-color': 'red',
+          'color': 'lightgreen',
+      });
+    // select associated div and show
+    let hash = '#'+key
+    $(`${hash}`).show();
+
 })
+
 }
+
 
 function largePhotosFxn(){
     ids.forEach(function(id){
